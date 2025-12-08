@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Currency Detection Using Image Processing</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1 style="color: white;"> Fake Currency Detection Using Image Processing</h1>
+    <a href="{% url 'history_page' %}" class="btn btn-light mb-3">📜 View Upload History</a>
+
+    <div class="upload-card">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="note" class="form-control mb-3" required>
+            <button type="submit" class="btn btn-primary w-100">Check Currency</button>
+        </form>
+
+        {% if result %}
+            <div class="mt-4">
+                <span class="
+                    {% if result == 'REAL' %}result-real
+                    {% elif result == 'FAKE' %}result-fake
+                    {% else %}result-unknown{% endif %}
+                ">
+                    Result: {{ result }}
+                </span>
+            </div>
+
+            {% if uploaded_image %}
+            <div class="mt-4">
+                <h5>Uploaded Note:</h5>
+                <img src="{{ uploaded_image }}" class="uploaded-note shadow-lg">
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+</body>
+</html>

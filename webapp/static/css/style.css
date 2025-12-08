@@ -1,0 +1,106 @@
+/* ---------- Global Page Styling ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+
+    /* High-Quality Background Image */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../images/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    animation: zoomBG 20s ease-in-out infinite alternate;
+    padding-top: 50px;
+}
+
+/* Smooth Zoom Effect for Background */
+@keyframes zoomBG {
+    0% { background-size: 100% 100%; }
+    100% { background-size: 110% 110%; }
+}
+
+/* ---------- Title Styling ---------- */
+h1 {
+    color: white; /* White text for better visibility */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    /* Subtle shadow for contrast */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+h1::before {
+    content: "💵";
+    font-size: 2.5rem;
+}
+
+/* ---------- Upload Card Styling ---------- */
+.upload-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: auto;
+    backdrop-filter: blur(15px); /* Stronger frosted glass effect */
+    color: white;
+}
+
+/* ---------- Upload Button Styling ---------- */
+input[type="submit"], .btn-primary {
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover, .btn-primary:hover {
+    background: linear-gradient(90deg, #0056b3, #0099cc);
+    transform: scale(1.05);
+}
+
+/* ---------- Result Styles ---------- */
+.result-real {
+    color: white;
+    background-color: rgba(0, 255, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.result-fake {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.result-unknown {
+    color: white;
+    background-color: rgba(128, 128, 128, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* ---------- Uploaded Image Styling ---------- */
+img.uploaded-note {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 3px solid white;
+}
